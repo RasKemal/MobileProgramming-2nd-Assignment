@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/menu_bg"
     tools:context=".RegisterActivity">
 
     <TextView
@@ -124,6 +124,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        app:backgroundTint="@null"
         android:background="@drawable/btn_bg"
         android:text="register"
         android:textStyle="bold"
