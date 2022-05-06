@@ -191,19 +191,11 @@ public class LoginActivity extends AppCompatActivity {
 
     public ArrayList<User> createUsers() {
 
-        User newUser = new User("Feyyaz Yiğit", "feyyazyigit@gmail.com", "5431234567", User.md5("sevgi"));
+        User newUser = new User("Alperen Vardarli", "alperen@gmail.com", "5431234567", User.md5("alper"));
         users.add(newUser);
         addUser(newUser);
 
-        newUser = new User("Ece İmre", "ece.imre@gmail.com", "3265002545", User.md5("scamand1992"));
-        users.add(newUser);
-        addUser(newUser);
-
-        newUser = new User("Atreus the Demigod", "atreusthearcher@gmail.com", "5963211236", User.md5("whymydadhatesme"));
-        users.add(newUser);
-        addUser(newUser);
-
-        newUser = new User("Kratos the god", "feyyazyigit@gmail.com", "5431234567", User.md5("sevgi"));
+        newUser = new User("Ece İmre", "ece.imre@gmail.com", "3265002545", User.md5("dentist"));
         users.add(newUser);
         addUser(newUser);
 
