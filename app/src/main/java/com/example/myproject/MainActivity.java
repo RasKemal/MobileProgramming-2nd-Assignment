@@ -57,49 +57,8 @@ public class MainActivity extends AppCompatActivity {
         runtimePermission();
 
 
-
-        /*if(checkPermission() == false) {
-            requestPermission();
-            return;
-        }
-        String[] plan = {
-                MediaStore.Audio.Media.TITLE,
-                MediaStore.Audio.Media.DATA,
-                MediaStore.Audio.Media.DURATION
-        };
-
-        String choice = MediaStore.Audio.Media.IS_MUSIC +" != 0";
-        Cursor cursor = getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, plan, choice, null, null);
-        while (cursor.moveToNext()) {
-            SongModel song_data = new SongModel(cursor.getString(1), cursor.getString(0), cursor.getString(2));
-
-            if (new File(song_data.getPath()).exists()) {
-                songs.add(song_data);
-            }
-        }
-
-
-        listView.setLayoutManager(new LinearLayoutManager(this));
-        listView.setAdapter(new CustomAdapter(songs,getApplicationContext()));*/
-
     }
 
-
-    /*boolean checkPermission(){
-        int result = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
-        if(result == PackageManager.PERMISSION_GRANTED){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    void requestPermission(){
-        if(ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,Manifest.permission.READ_EXTERNAL_STORAGE)){
-            Toast.makeText(MainActivity.this,"READ PERMISSION IS REQUIRED,PLEASE ALLOW FROM SETTTINGS",Toast.LENGTH_SHORT).show();
-        }else
-            ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},123);
-    }*/
 
     public void runtimePermission(){
         Dexter.withContext(this).withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
