@@ -3,7 +3,10 @@ package com.example.myproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -27,7 +30,7 @@ public class PlayerActivity extends AppCompatActivity {
     SongModel curSong;
     MediaPlayer media_player = Player.getInstance();
     ArrayList<SongModel> songList;
-
+    MyReceiver broadcastReceiver = new MyReceiver();
 
 
     @Override
@@ -35,11 +38,23 @@ public class PlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player);
 
+
         initVariables();
         initMusic();
         progressBar();
 
+
+        IntentFilter filter = new IntentFilter("com.kemalselcuk.action");
+        registerReceiver(broadcastReceiver,filter);
+
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(broadcastReceiver);
+    }
+
 
     public void initVariables(){
         songName = findViewById(R.id.txtsn);
@@ -157,5 +172,7 @@ public class PlayerActivity extends AppCompatActivity {
                 TimeUnit.MILLISECONDS.toMinutes(millis) % TimeUnit.HOURS.toMinutes(1),
                 TimeUnit.MILLISECONDS.toSeconds(millis) % TimeUnit.MINUTES.toSeconds(1));
     }
+
+
 }
 
